@@ -3,7 +3,7 @@
 .navbar {
     grid-area: navbar;
 
-    padding: var.$spacing-sm !important;
+    padding: var.$spacing-sm 0 0 var.$spacing-sm !important;
     background-color: var.$color-primary-300;
 
     &__menu-icon,

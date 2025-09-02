@@ -6,7 +6,7 @@ import ProductGallery from "./product-gallery/ProductGallery";
 import "./products.scss";
 
 const product = {
-    id:1,
+    id:null,
     title:"test1",
     description:"lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price:1500,
@@ -17,12 +17,17 @@ const product = {
 };
 const Products = () => {
     const { productsContext } = useContext(AppContext);
-    const { create } = productsContext;
+    const { createProduct } = productsContext;
+
+    const handleCreateProduct = () => {
+        console.log("Crear producto", product);
+        createProduct(product);
+    };
 
     return (
         <div className="products">
             <Text variant="h2">Productos</Text>
-            <ButtonPrimary onClick={ () => create(product) }>Crear Producto</ButtonPrimary>
+            <ButtonPrimary onClick={handleCreateProduct}>Crear Producto</ButtonPrimary>
             <ProductGallery />
         </div>
     );

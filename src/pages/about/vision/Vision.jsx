@@ -1,7 +1,7 @@
 import React from "react";
 import "./vision.scss";
 import { Text } from "@/components/texts";
-import vision from "@/assets/images/img01.jpg";
+import vision from "@/assets/images/vision.jpg";
 
 const Vision = () => {
     return (

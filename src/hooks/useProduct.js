@@ -1,102 +1,114 @@
 import { useEffect, useState } from "react";
+import productsApi from "../api/products.api.js";
 
 export const useProduct = () => {
     const [ products, setProducts ] = useState([]);
     const [ isLoading, setIsLoading ] = useState(false);
+    const [ error, setError ] = useState(null);
 
-    const generateId = () => {
-        let maxId = 0;
-        products.forEach((item) => {
-            if (item.id > maxId){
-                maxId = item.id;
-            }
-        });
-
-        return maxId + 1;
-    };
-
-    const get = () => {
+    const fetchProducts = async () => {
         setIsLoading(true);
+        setError(null);
 
-        const collection = JSON.parse(localStorage.getItem("products")) || [];
-        setProducts(collection);
-
-        setIsLoading(true);
-        return collection;
-    };
-
-    const getById = (id) => {
-        setIsLoading(true);
-
-        const collection = JSON.parse(localStorage.getItem("products")) || [];
-        const product = collection.find((item) => item.id === parseInt(id));
-
-        if (!product) {
-            throw new Error("Producto no encontrado.");
+        try {
+            const data = await productsApi.fetchProducts();
+            setProducts(data);
+        } catch (error) {
+            setProducts([]);
+            setError(error.message || "Error al cargar productos.");
         }
 
         setIsLoading(false);
+    };
 
+    const fetchProductById = async (id) => {
+        setIsLoading(true);
+        setError(null);
+        let product = null;
+
+        try {
+            product = await productsApi.fetchProductById(id);
+        } catch (error) {
+            setError(error.message || "Error al carga producto.");
+        }
+
+        setIsLoading(false);
         return product;
     };
 
-    const create = (newProduct) => {
+    const createProduct = async (values) => {
         setIsLoading(true);
+        setError(null);
+        let product = null;
 
-        const collection = [ ...products, { ...newProduct, id: generateId() }];
-        localStorage.setItem("products", JSON.stringify(collection));
-        setProducts(collection);
+        try {
+            product = await productsApi.createProduct(values);
+        } catch (error) {
+            setError(error.message || "Error al crear producto.");
+        }
 
+        fetchProducts();
+        setIsLoading(false);
+        return product;
+    };
+
+    const updateProduct = async (id, values) => {
+        setIsLoading(true);
+        setError(null);
+        let product = null;
+
+        try {
+            product = await productsApi.updateProduct(id, values);
+        } catch (error) {
+            setError(error.message || "Error al modificar producto.");
+        }
+
+        setIsLoading(false);
+        return product;
+    };
+
+    const removeProduct = async (id) => {
+        setIsLoading(true);
+        setError(null);
+
+        try {
+            await productsApi.removeProduct(id);
+        } catch (error) {
+            setError(error.message || "Error al eliminar producto.");
+        }
+
+        fetchProducts();
         setIsLoading(false);
     };
 
-    const update = (id, data) => {
+    const checkProductStock = async (id) => {
         setIsLoading(true);
+        setError(null);
+        let result = false;
 
-        const product = { ...getById(id), ...data };
-        const index = products.findIndex((item) => item.id === parseInt(id));
-        products[index] = product;
-
-        const collection = [...products];
-        localStorage.setItem("products", JSON.stringify(collection));
-        setProducts(collection);
+        try {
+            result = await productsApi.checkProductStock(id);
+        } catch (error) {
+            setError(error.message || "Error al chequear stock de producto.");
+        }
 
         setIsLoading(false);
-    };
-
-    const remove = (id) => {
-        setIsLoading(true);
-
-        const product = getById(id);
-        const collection = products.filter((item) => item.id != product.id);
-
-        localStorage.setItem("products", JSON.stringify(collection));
-        setProducts(collection);
-
-        setIsLoading(false);
-    };
-
-    const hasStock = (id, quantity) =>{
-        setIsLoading(true);
-
-        const product = getById(id);
-
-        setIsLoading(false);
-        return quantity <= product.stock;
+        return result;
     };
 
     useEffect(() => {
-        get();
+        fetchProducts();
     }, []);
 
     return {
         products,
         isLoading,
-        get,
-        getById,
-        create,
-        update,
-        remove,
-        hasStock,
+        error,
+        fetchProducts,
+        fetchProductById,
+        createProduct,
+        updateProduct,
+        removeProduct,
+        checkProductStock,
     };
 };

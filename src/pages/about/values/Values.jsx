@@ -1,7 +1,7 @@
 import React from "react";
 import "./values.scss";
 import { Text } from "@/components/texts";
-import values from "@/assets/images/img03.jpg";
+import values from "@/assets/images/values.jpg";
 
 const Values = () => {
     return (

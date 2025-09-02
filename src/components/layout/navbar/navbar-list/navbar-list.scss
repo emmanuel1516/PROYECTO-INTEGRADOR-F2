@@ -2,7 +2,7 @@
 
 .navbar-list {
     display: flex;
-    gap: var.$spacing-md;
+
 
     @media (max-width: 768px) {
         flex-direction: column;

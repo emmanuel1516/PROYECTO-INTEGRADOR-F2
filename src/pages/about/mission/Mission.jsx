@@ -1,7 +1,7 @@
 import React from "react";
 import "./mission.scss";
 import { Text } from "@/components/texts";
-import mission from "@/assets/images/img02.jpg";
+import mission from "@/assets/images/mission.jpg";
 
 const Mission = () => {
     return (
