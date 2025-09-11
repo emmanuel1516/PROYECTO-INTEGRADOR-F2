@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
-import "./product-gallery.scss";
 import AppContext from "@/contexts/AppContext";
+import { useContext } from "react";
 import ProductItem from "../product-item/ProductItem";
+import ProductNewItem from "../product-new-item/ProductNewItem";
+import "./product-gallery.scss";
 
 const ProductGallery = () => {
     const { productsContext } = useContext(AppContext);
@@ -9,6 +10,7 @@ const ProductGallery = () => {
 
     return (
         <div className="product-gallery">
+            <ProductNewItem/>
             {products.map((product) => (
                 <ProductItem
                     key={product.id}

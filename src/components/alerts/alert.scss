@@ -1,8 +1,6 @@
 @use "@/scss/variables" as var;
 
 .alert {
-    bottom: 3rem !important;
-
     &__content {
         display: flex;
         justify-content: space-between;
@@ -41,5 +39,11 @@
     &--danger &__content {
         background-color: var.$color-danger-100;
         border-color: var.$color-danger-500;
+    }
+
+    &--success-form {
+        position: static !important;
+        display: flex;
+        justify-content: center;
     }
 }

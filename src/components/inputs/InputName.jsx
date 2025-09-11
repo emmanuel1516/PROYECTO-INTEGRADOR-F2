@@ -3,14 +3,7 @@ import Input from "./Input";
 
 const InputName = (props) => {
     const {
-        id,
-        name,
-        label,
-        value,
-        onChange,
-        onBlur,
-        error,
-        helperText,
+        formik,
         maxLength = 25,
         ...restProps
     } = props;
@@ -18,28 +11,27 @@ const InputName = (props) => {
     return (
         <Input
             type="text"
-            id={id || name}
-            name={name}
-            label={label}
-            value={value}
-            onChange={onChange}
-            onBlur={onBlur}
-            error={error}
-            helperText={helperText}
+            id="name"
+            name="name"
+            label="Nombre"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.name && Boolean(formik.errors.name)}
+            helperText={formik.touched.name && formik.errors.name}
             inputProps={{ maxLength }}
             {...restProps}/>
     );
 };
 
 InputName.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
+    formik: PropTypes.shape({
+        values: PropTypes.shape({ name: PropTypes.string.isRequired }).isRequired,
+        handleChange: PropTypes.func.isRequired,
+        handleBlur: PropTypes.func.isRequired,
+        touched: PropTypes.shape({ name: PropTypes.bool }).isRequired,
+        errors: PropTypes.shape({ name: PropTypes.string }).isRequired,
+    }).isRequired,
     maxLength: PropTypes.number,
 };
 

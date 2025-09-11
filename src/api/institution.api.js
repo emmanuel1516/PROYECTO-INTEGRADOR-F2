@@ -1,9 +1,9 @@
+import missionImage from "../../public/images/about/mission.jpg";
+import valuesImage from "../../public/images/about/values.jpg";
+import visionImage from "../../public/images/about/vision.jpg";
 import { missionTmp } from "./data/mission.tmp.js";
 import { valuesTmp } from "./data/values.tmp.js";
 import { visionTmp } from "./data/vision.tmp.js";
-import missionImage from "../assets/images/mission.jpg";
-import visionImage from "../assets/images/vision.jpg";
-import valuesImage from "../assets/images/values.jpg";
 
 const KEY_INSTITUTION = "institution";
 

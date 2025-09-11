@@ -5,14 +5,7 @@ import Input from "./Input";
 
 const InputEmail = (props) => {
     const {
-        id,
-        name,
-        label,
-        value,
-        onChange,
-        onBlur,
-        error,
-        helperText,
+        formik,
         maxLength = 50,
         ...restProps
     } = props;
@@ -20,15 +13,14 @@ const InputEmail = (props) => {
     return (
         <Input
             type="email"
-            id={id || name}
-            name={name}
-            label={label}
-            value={value}
-            placeholder="Ingresa tu e-mail"
-            onChange={onChange}
-            onBlur={onBlur}
-            error={error}
-            helperText={helperText}
+            id="email"
+            name="email"
+            label="E-mail"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
             endAdornment={<InputAdornment position="end"><EmailOutlinedIcon/></InputAdornment>}
             inputProps={{ maxLength }}
             {...restProps}/>
@@ -36,14 +28,13 @@ const InputEmail = (props) => {
 };
 
 InputEmail.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
+    formik: PropTypes.shape({
+        values: PropTypes.shape({ email: PropTypes.string.isRequired }).isRequired,
+        handleChange: PropTypes.func.isRequired,
+        handleBlur: PropTypes.func.isRequired,
+        touched: PropTypes.shape({ email: PropTypes.bool }).isRequired,
+        errors: PropTypes.shape({ email: PropTypes.string }).isRequired,
+    }).isRequired,
     maxLength: PropTypes.number,
 };
 

@@ -1,13 +1,27 @@
 @use "@/scss/variables" as var;
 
 .footer-social-media-item {
-    &__label {
-        color: var.$color-neutro-200;
-        font-size: var.$font-size-sm;
-        font-weight: var.$font-weight-regular;
+    height: var.$font-size-xxl;
+    width: var.$font-size-xxl;
+    padding-top: var.$spacing-xs;
 
-        &:hover {
-            color: var.$color-neutro-700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var.$color-neutro-200;
+    border-radius: 50%;
+
+    &:hover {
+        border-color: var.$color-neutro-700;
+
+        .footer-social-media-item__icon {
+            fill: var.$color-neutro-700;
         }
+    }
+
+    &__icon {
+        width: var.$font-size-lg;
+        fill: var.$color-neutro-200;
     }
 }

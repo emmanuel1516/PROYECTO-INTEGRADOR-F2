@@ -11,7 +11,11 @@
         font-weight: var.$font-weight-bold;
     }
 
-    &__content {
+    &__list {
+        display: flex;
+        flex-direction: row;
+        gap: var.$spacing-sm;
+
         padding-left: var.$spacing-xs;
     }
 }

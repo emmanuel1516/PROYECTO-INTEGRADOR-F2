@@ -3,15 +3,8 @@ import Input from "./Input";
 
 const InputInquiry = (props) => {
     const {
-        id,
-        name,
-        label,
-        value,
+        formik,
         rows = 5,
-        onChange,
-        onBlur,
-        error,
-        helperText,
         maxLength = 250,
         ...restProps
     } = props;
@@ -19,32 +12,30 @@ const InputInquiry = (props) => {
     return (
         <Input
             type="text"
-            id={id || name}
-            name={name}
-            label={label}
-            value={value}
-            placeholder="Ingresa tu consulta"
+            id="inquiry"
+            name="inquiry"
+            label="Consulta"
             multiline
             rows={rows}
-            onChange={onChange}
-            onBlur={onBlur}
-            error={error}
-            helperText={helperText}
+            value={formik.values.inquiry}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.inquiry && Boolean(formik.errors.inquiry)}
+            helperText={formik.touched.inquiry && formik.errors.inquiry}
             inputProps={{ maxLength }}
             {...restProps}/>
     );
 };
 
 InputInquiry.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
+    formik: PropTypes.shape({
+        values: PropTypes.shape({ inquiry: PropTypes.string.isRequired }).isRequired,
+        handleChange: PropTypes.func.isRequired,
+        handleBlur: PropTypes.func.isRequired,
+        touched: PropTypes.shape({ inquiry: PropTypes.bool }).isRequired,
+        errors: PropTypes.shape({ inquiry: PropTypes.string }).isRequired,
+    }).isRequired,
     rows: PropTypes.number,
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
     maxLength: PropTypes.number,
 };
 

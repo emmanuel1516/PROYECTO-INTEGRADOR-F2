@@ -47,7 +47,6 @@ export const useProduct = () => {
             setError(error.message || "Error al crear producto.");
         }
 
-        fetchProducts();
         setIsLoading(false);
         return product;
     };
@@ -77,7 +76,6 @@ export const useProduct = () => {
             setError(error.message || "Error al eliminar producto.");
         }
 
-        fetchProducts();
         setIsLoading(false);
     };
 

@@ -1,8 +1,7 @@
-import React from "react";
-import "./footer-social-media.scss";
 import { Text } from "@/components/texts";
 import FooterSocialMediaItem from "../footer-social-media-item/FooterSocialMediaItem";
 import { items } from "./footer-social-media.config.js";
+import "./footer-social-media.scss";
 
 const FooterSocialMedia = () => {
     return (

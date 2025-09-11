@@ -3,15 +3,8 @@ import Input from "./Input";
 
 const InputDescription = (props) => {
     const {
-        id,
-        name,
-        label,
-        value,
+        formik,
         rows = 4,
-        onChange,
-        onBlur,
-        error,
-        helperText,
         maxLength = 100,
         ...restProps
     } = props;
@@ -19,32 +12,30 @@ const InputDescription = (props) => {
     return (
         <Input
             type="text"
-            id={id || name}
-            name={name}
-            label={label}
-            value={value}
-            placeholder="Ingresa tu descripción"
+            id="description"
+            name="description"
+            label="Descripción"
             multiline
             rows={rows}
-            onChange={onChange}
-            onBlur={onBlur}
-            error={error}
-            helperText={helperText}
+            value={formik.values.description}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={formik.touched.description && Boolean(formik.errors.description)}
+            helperText={formik.touched.description && formik.errors.description}
             inputProps={{ maxLength }}
             {...restProps}/>
     );
 };
 
 InputDescription.propTypes = {
-    id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
+    formik: PropTypes.shape({
+        values: PropTypes.shape({ description: PropTypes.string.isRequired }).isRequired,
+        handleChange: PropTypes.func.isRequired,
+        handleBlur: PropTypes.func.isRequired,
+        touched: PropTypes.shape({ description: PropTypes.bool }).isRequired,
+        errors: PropTypes.shape({ description: PropTypes.string }).isRequired,
+    }).isRequired,
     rows: PropTypes.number,
-    onChange: PropTypes.func.isRequired,
-    onBlur: PropTypes.func.isRequired,
-    error: PropTypes.bool,
-    helperText: PropTypes.string,
     maxLength: PropTypes.number,
 };
 
