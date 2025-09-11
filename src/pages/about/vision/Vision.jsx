@@ -1,25 +1,18 @@
-import React from "react";
+import { useContext } from "react";
 import "./vision.scss";
 import { Text } from "@/components/texts";
-import vision from "@/assets/images/vision.jpg";
+import AppContext from "@/contexts/AppContext";
 
 const Vision = () => {
+    const { institutionContext } = useContext(AppContext);
+    const { institution } = institutionContext;
+
     return (
         <section className="vision">
-            <Text className="vision__title" variant="h3">Visión</Text>
-            <div>
-                <img className="vision__image" src={vision} alt="Imagen de la visión de la empresa"/>
-                <Text className="vision__description" variant="p">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                </Text>
+            <img className="vision__image" src={institution.about.vision.image} alt="Imagen de la visión de la empresa"/>
+            <div className="vision__content">
+                <Text className="vision__title" variant="h3">Visión</Text>
+                <Text className="vision__description" variant="p">{institution.about.vision.description}</Text>
             </div>
         </section>
     );

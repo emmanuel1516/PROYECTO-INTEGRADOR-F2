@@ -2,9 +2,11 @@ import PropTypes from "prop-types";
 import AppContext from "./AppContext";
 import { useProduct } from "@/hooks/useProduct";
 import { useShoppingCart } from "@/hooks/useShoppingCart";
+import { useInstitution } from "@/hooks/useInstitution";
 
 const AppProvider = (props) => {
     const { children } = props;
+    const institutionContext = useInstitution();
     const productsContext = useProduct();
     const shoppingCartContext = useShoppingCart();
 
@@ -13,6 +15,7 @@ const AppProvider = (props) => {
             value={{
                 productsContext,
                 shoppingCartContext,
+                institutionContext,
             }}>
             {children}
         </AppContext.Provider>

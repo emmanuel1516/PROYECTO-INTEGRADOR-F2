@@ -10,7 +10,7 @@ const InstitutionLogo = (props) => {
     return (
         <div className={classes} {...restProps}>
             <img className="institution-logo__logo" src={logo} alt="Logo de la institución"/>
-            <Text className="institution-logo__title" variant="h1">Mi App</Text>
+            <Text className="institution-logo__title" variant="h1">SneakerZone</Text>
         </div>
     );
 };

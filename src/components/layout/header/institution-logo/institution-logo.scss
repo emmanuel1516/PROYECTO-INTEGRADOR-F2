@@ -2,18 +2,18 @@
 
 .institution-logo {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: var.$spacing-sm;
 
     &__logo {
         height: fit-content;
-        width: var.$font-size-xxl;
+        width: var.$font-size-xxxl;
     }
 
     &__title {
         font-size: var.$font-size-xxl;
         font-weight: var.$font-weight-bold;
-        text-transform: uppercase;
     }
 
 }

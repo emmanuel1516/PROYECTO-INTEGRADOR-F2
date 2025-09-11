@@ -1,25 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./values.scss";
 import { Text } from "@/components/texts";
-import values from "@/assets/images/values.jpg";
+import AppContext from "@/contexts/AppContext";
 
 const Values = () => {
+    const { institutionContext } = useContext(AppContext);
+    const { institution } = institutionContext;
     return (
         <section className="values">
-            <Text className="values__title" variant="h3">Valores</Text>
-            <div>
-                <img className="values__image" src={values} alt="Imagen de los valores de la empresa"/>
-                <Text className="values__description" variant="p">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                    Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                    Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                </Text>
+            <img className="values__image" src={institution.about.values.image} alt="Imagen de los valores de la empresa"/>
+            <div className="values__content">
+                <Text className="values__title" variant="h3">Valores</Text>
+                <div
+                    className="values__description"
+                    dangerouslySetInnerHTML={{ __html: institution.about.values.description }}>
+                </div>
             </div>
         </section>
     );

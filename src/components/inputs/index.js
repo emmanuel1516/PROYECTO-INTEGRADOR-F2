@@ -1,3 +1,11 @@
 export { default as Input } from "./Input";
 export { default as InputAge } from "./InputAge";
+export { default as InputDescription } from "./InputDescription";
+export { default as InputEmail } from "./InputEmail";
+export { default as InputInquiry } from "./InputInquiry";
 export { default as InputMoney } from "./InputMoney";
+export { default as InputName } from "./InputName";
+export { default as InputPhone } from "./InputPhone";
+export { default as InputStock } from "./InputStock";
+export { default as InputSurname } from "./InputSurname";
+export { default as InputText } from "./InputText";

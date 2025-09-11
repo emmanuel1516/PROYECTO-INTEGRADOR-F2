@@ -10,4 +10,16 @@
     &:active {
         background-color: var.$color-dark-alpha-300 !important;
     }
+
+    &__edit {
+        svg {
+            fill: var.$color-primary-700
+        }
+    }
+
+    &__remove {
+        svg {
+            fill: var.$color-danger-500;
+        }
+    }
 }

@@ -5,7 +5,7 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background-color: var.$color-primary-500;
+    background-color: var.$color-primary-200;
     padding: var.$spacing-sm;
 
     :first-child {

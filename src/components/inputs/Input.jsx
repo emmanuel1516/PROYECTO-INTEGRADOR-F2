@@ -45,7 +45,7 @@ const Input = (props) => {
 
 Input.propTypes = {
     className: PropTypes.string,
-    type: PropTypes.oneOf([ "text", "email", "number" ]).isRequired,
+    type: PropTypes.oneOf([ "text", "email", "number", "tel" ]).isRequired,
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,

@@ -1,25 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./mission.scss";
 import { Text } from "@/components/texts";
-import mission from "@/assets/images/mission.jpg";
+import AppContext from "@/contexts/AppContext";
 
 const Mission = () => {
+    const { institutionContext } = useContext(AppContext);
+    const { institution } = institutionContext;
     return (
         <section className="mission">
-            <Text className="mission__title" variant="h3">Misión</Text>
-            <div>
-                <img className="mission__image" src={mission} alt="Imagen de la misión de la empresa"/>
-                <Text className="mission__description" variant="p">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                                Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                                Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                                Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                                Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing
-                                Cumque odit modi natus fuga autem qui, iure aspernatur vel repellendus itaque totam ut minus praesentium?
-                                Illum iusto tenetur reprehenderit laborum ad? Lorem ipsum dolor sit amet consectetur adipisicing elit
-                </Text>
+            <img className="mission__image" src={institution.about.mission.image} alt="Imagen de la misión de la empresa"/>
+            <div className="mission__content">
+                <Text className="mission__title" variant="h3">Misión</Text>
+                <Text className="mission__description" variant="p">{institution.about.mission.description}</Text>
             </div>
         </section>
     );
