@@ -6,4 +6,16 @@
     align-items: center;
     gap: var.$spacing-lg;
     padding: var.$spacing-lg;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__institution,
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: var.$spacing-lg;
+    }
 }
