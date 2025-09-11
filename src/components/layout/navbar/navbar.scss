@@ -6,6 +6,19 @@
     padding: var.$spacing-sm 0 0 var.$spacing-sm !important;
     background-color: var.$color-primary-400;
 
+    &__menu-list {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+
+    &__menu-icon {
+        font-size: var.$font-size-xxl !important;
+        cursor: pointer;
+        margin-right: var.$spacing-sm;
+    }
+
     &__menu-icon,
     &__menu-drawer {
         color: var.$color-primary-700;

@@ -11,7 +11,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <InstitutionLogo className="header_institution"/>
+            <InstitutionLogo className="header__institution"/>
             <IconButtonBadge
                 className="header__shopping-cart"
                 badgeContent={shoppingCart.totalQuantity ?? 0}>
