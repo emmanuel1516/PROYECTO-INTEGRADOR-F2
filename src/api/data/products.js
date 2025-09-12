@@ -1,0 +1,162 @@
+export const products = [
+  {
+    "id": 1,
+    "name": "Zapatillas Nike Run Swift 3",
+    "description": "Amortiguación suave y malla liviana; cómoda para entrenar y uso diario.",
+    "price": 149999,
+    "image": "../../public/images/products/product01",
+    "featured": false,
+    "thumbnail": "product01.jpg",
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "name": "Zapatillas Adidas Ultraboost 5",
+    "description": "Boost reactivo y Primeknit adaptable; ideal para correr largas distancias.",
+    "price": 229999,
+    "image": "../../public/images/products/product02",
+    "featured": false,
+    "thumbnail": "product02.jpg",
+    "stock": 5
+  },
+  {
+    "id": 3,
+    "name": "Zapatillas Run 60s 4.0",
+    "description": "Estilo retro con malla y cuero sintético; livianas y cómodas para diario.",
+    "price": 89999,
+    "image": "../../public/images/products/product03",
+    "featured": true,
+    "thumbnail": "product03.jpg",
+    "stock": 0
+  },
+  {
+    "id": 4,
+    "name": "Zapatillas Puma RS-X Parachute Landing",
+    "description": "Diseño audaz y robusto con buena amortiguación; estilo urbano cómodo.",
+    "price": 89999,
+    "image": "../../public/images/products/product04",
+    "featured": false,
+    "thumbnail": "product04.jpg",
+    "stock": 5
+  },
+  {
+    "id": 5,
+    "name": "Zapatillas Nike Revolution 7",
+    "description": "Espuma ligera, malla transpirable y tracción confiable para entrenar.",
+    "price": 99999,
+    "image": "../../public/images/products/product05",
+    "featured": false,
+    "thumbnail": "product05.jpg",
+    "stock": 10
+  },
+  {
+    "id": 6,
+    "name": "Zapatillas Adidas Duramo SL2",
+    "description": "Ligeras y ventiladas; EVA y suela resistente para múltiples usos.",
+    "price": 99999,
+    "image": "../../public/images/products/product06",
+    "featured": false,
+    "thumbnail": "product06.jpg",
+    "stock": 8
+  },
+  {
+    "id": 7,
+    "name": "Zapatillas Nike Revolution 7",
+    "description": "Comodidad accesible con espuma ligera y malla fresca para el día a día.",
+    "price": 99999,
+    "image": "../../public/images/products/product07",
+    "featured": false,
+    "thumbnail": "product07.jpg",
+    "stock": 12
+  },
+  {
+    "id": 8,
+    "name": "Zapatillas Nike Downshifter 13",
+    "description": "Ligereza y comodidad; malla fresca y suela flexible para entrenar.",
+    "price": 119999,
+    "image": "../../public/images/products/product08",
+    "featured": false,
+    "thumbnail": "product08.jpg",
+    "stock": 0
+  },
+  {
+    "id": 9,
+    "name": "Zapatillas Adidas Grand Court Alpha 00s",
+    "description": "Look retro 2000, cuero sintético durable y amortiguación ligera.",
+    "price": 119999,
+    "image": "../../public/images/products/product09",
+    "featured": true,
+    "thumbnail": "product09.jpg",
+    "stock": 7
+  },
+  {
+    "id": 10,
+    "name": "Zapatillas Nike Air Max SC",
+    "description": "Diseño moderno con Air visible; cómoda y protectora para uso diario.",
+    "price": 169999,
+    "image": "../../public/images/products/product10",
+    "featured": false,
+    "thumbnail": "product10.jpg",
+    "stock": 4
+  },
+  {
+    "id": 11,
+    "name": "Zapatillas Adidas Tensaur Sport 2.0 Kids",
+    "description": "Para niños: malla fresca, amortiguación ligera y suela duradera.",
+    "price": 69999,
+    "image": "../../public/images/products/product11",
+    "featured": true,
+    "thumbnail": "product11.jpg",
+    "stock": 15
+  },
+  {
+    "id": 12,
+    "name": "Zapatillas Adidas VL Court Mercedes - AMG Petronas F1 team",
+    "description": "Colab AMG F1; estilo urbano, materiales durables y amortiguación liviana.",
+    "price": 119999,
+    "image": "../../public/images/products/product12",
+    "featured": false,
+    "thumbnail": "product12.jpg",
+    "stock": 6
+  },
+  {
+    "id": 13,
+    "name": "Zapatillas Hoka Clifton 8",
+    "description": "Amortiguación superior y peso liviano para largas distancias.",
+    "price": 189999,
+    "image": "../../public/images/products/product13",
+    "featured": false,
+    "thumbnail": "product13.jpg",
+    "stock": 3
+  },
+  {
+    "id": 14,
+    "name": "Zapatillas Adidas Adizero SL2",
+    "description": "Ultraligeras y reactivas; tracción y ventilación para rendimiento.",
+    "price": 179999,
+    "image": "../../public/images/products/product14",
+    "featured": false,
+    "thumbnail": "product14.jpg",
+    "stock": 9
+  },
+  {
+    "id": 15,
+    "name": "Zapatillas Nike Full Force Low",
+    "description": "Estilo urbano resistente; comodidad diaria y tracción confiable.",
+    "price": 139900,
+    "image": "../../public/images/products/product15",
+    "featured": false,
+    "thumbnail": "product15.jpg",
+    "stock": 4
+  },
+  {
+    "id": 16,
+    "name": "Zapatillas Nike Flex Experience RN 12",
+    "description": "Sensación natural y flexible; malla fresca y buena tracción.",
+    "price": 129999,
+    "image": "../../public/images/products/product16",
+    "featured": false,
+    "thumbnail": "product16.jpg",
+    "stock": 11
+  }
+];

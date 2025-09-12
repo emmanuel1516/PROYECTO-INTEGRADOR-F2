@@ -13,6 +13,7 @@ const ProductGallery = () => {
             <ProductNewItem/>
             {products.map((product) => (
                 <ProductItem
+                    className="product-gallery__card"
                     key={product.id}
                     product={product}
                     isLoading={isLoading}/>

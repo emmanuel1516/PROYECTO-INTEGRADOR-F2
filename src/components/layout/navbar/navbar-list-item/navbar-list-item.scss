@@ -6,7 +6,7 @@
     font-weight: var.$font-weight-bold;
     color: var.$color-neutro-900;
     font-size: var.$font-size-md;
-
+    border-bottom: 2px solid transparent; // Para que en el carrito no salte el contenido al activar el hover
 
 
     &:hover,

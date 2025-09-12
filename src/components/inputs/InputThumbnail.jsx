@@ -4,7 +4,7 @@ import Input from "./Input";
 const InputThumbnail = (props) => {
     const {
         formik,
-        maxLength = 25,
+        maxLength = 35,
         ...restProps
     } = props;
 

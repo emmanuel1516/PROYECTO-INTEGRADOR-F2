@@ -1,3 +1,5 @@
+import { products } from "./data/products.js";
+
 const KEY_PRODUCTS = "products";
 
 const generateId = (products) => {
@@ -12,9 +14,15 @@ const generateId = (products) => {
     return maxId + 1;
 };
 
+const initialize = () => {
+  const initialData = Array.isArray(products) ? products : [];
+  localStorage.setItem(KEY_PRODUCTS, JSON.stringify(initialData));
+  return initialData;
+};
+
 const getProductsFromLocalStorage = () => {
     const data = localStorage.getItem(KEY_PRODUCTS);
-    return JSON.parse(data) || [];
+    return JSON.parse(data) || initialize();
 };
 
 const fetchProducts = () => {
