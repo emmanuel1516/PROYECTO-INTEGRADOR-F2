@@ -3,6 +3,7 @@
 .navbar-list {
     display: flex;
 
+    color: aqua !important;
 
     @media (max-width: 768px) {
         flex-direction: column;

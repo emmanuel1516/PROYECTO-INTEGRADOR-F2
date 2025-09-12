@@ -2,9 +2,8 @@
 
 .navbar {
     grid-area: navbar;
-
     padding: var.$spacing-sm 0 0 var.$spacing-sm !important;
-    background-color: var.$color-primary-400;
+    background-color: var.$color-primary-500;
 
     &__menu-list {
         display: flex !important;
@@ -15,15 +14,30 @@
 
     &__menu-icon {
         font-size: var.$font-size-xxl !important;
+        color: var.$color-primary-100 !important;
         cursor: pointer;
         margin-right: var.$spacing-sm;
     }
 
     &__menu-icon,
     &__menu-drawer {
-        color: var.$color-primary-700;
+        color: var.$color-primary-100 !important;
         display: none !important;
+        margin: var.$spacing-xs;
+
+        & .MuiDrawer-paper {
+            background-color: var.$color-primary-300 !important;
+            padding-top: var.$spacing-lg !important;
+        }
+
+
     }
+
+    &__menu-icon:hover {
+        background-color: var.$color-primary-600 !important;
+        border-radius: 0.25rem;
+    }
+
 
     @media (max-width: 768px) {
 
