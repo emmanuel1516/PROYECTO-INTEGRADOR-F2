@@ -5,7 +5,8 @@ export const products = [
     "description": "Amortiguación suave y malla liviana; cómoda para entrenar y uso diario.",
     "price": 149999,
     "image": "../../public/images/products/product01",
-    "featured": false,
+    "highlighted": false,
+    "slider": true,
     "thumbnail": "product01.jpg",
     "stock": 10
   },
@@ -15,7 +16,8 @@ export const products = [
     "description": "Boost reactivo y Primeknit adaptable; ideal para correr largas distancias.",
     "price": 229999,
     "image": "../../public/images/products/product02",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product02.jpg",
     "stock": 5
   },
@@ -25,7 +27,8 @@ export const products = [
     "description": "Estilo retro con malla y cuero sintético; livianas y cómodas para diario.",
     "price": 89999,
     "image": "../../public/images/products/product03",
-    "featured": true,
+    "highlighted": true,
+    "slider": false,
     "thumbnail": "product03.jpg",
     "stock": 0
   },
@@ -35,7 +38,8 @@ export const products = [
     "description": "Diseño audaz y robusto con buena amortiguación; estilo urbano cómodo.",
     "price": 89999,
     "image": "../../public/images/products/product04",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product04.jpg",
     "stock": 5
   },
@@ -45,7 +49,8 @@ export const products = [
     "description": "Espuma ligera, malla transpirable y tracción confiable para entrenar.",
     "price": 99999,
     "image": "../../public/images/products/product05",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product05.jpg",
     "stock": 10
   },
@@ -55,7 +60,8 @@ export const products = [
     "description": "Ligeras y ventiladas; EVA y suela resistente para múltiples usos.",
     "price": 99999,
     "image": "../../public/images/products/product06",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product06.jpg",
     "stock": 8
   },
@@ -65,7 +71,8 @@ export const products = [
     "description": "Comodidad accesible con espuma ligera y malla fresca para el día a día.",
     "price": 99999,
     "image": "../../public/images/products/product07",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product07.jpg",
     "stock": 12
   },
@@ -75,7 +82,8 @@ export const products = [
     "description": "Ligereza y comodidad; malla fresca y suela flexible para entrenar.",
     "price": 119999,
     "image": "../../public/images/products/product08",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product08.jpg",
     "stock": 0
   },
@@ -85,7 +93,8 @@ export const products = [
     "description": "Look retro 2000, cuero sintético durable y amortiguación ligera.",
     "price": 119999,
     "image": "../../public/images/products/product09",
-    "featured": true,
+    "highlighted": true,
+    "slider": false,
     "thumbnail": "product09.jpg",
     "stock": 7
   },
@@ -95,7 +104,8 @@ export const products = [
     "description": "Diseño moderno con Air visible; cómoda y protectora para uso diario.",
     "price": 169999,
     "image": "../../public/images/products/product10",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product10.jpg",
     "stock": 4
   },
@@ -105,7 +115,8 @@ export const products = [
     "description": "Para niños: malla fresca, amortiguación ligera y suela duradera.",
     "price": 69999,
     "image": "../../public/images/products/product11",
-    "featured": true,
+    "highlighted": true,
+    "slider": true,
     "thumbnail": "product11.jpg",
     "stock": 15
   },
@@ -115,7 +126,8 @@ export const products = [
     "description": "Colab AMG F1; estilo urbano, materiales durables y amortiguación liviana.",
     "price": 119999,
     "image": "../../public/images/products/product12",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product12.jpg",
     "stock": 6
   },
@@ -125,7 +137,8 @@ export const products = [
     "description": "Amortiguación superior y peso liviano para largas distancias.",
     "price": 189999,
     "image": "../../public/images/products/product13",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product13.jpg",
     "stock": 3
   },
@@ -135,7 +148,8 @@ export const products = [
     "description": "Ultraligeras y reactivas; tracción y ventilación para rendimiento.",
     "price": 179999,
     "image": "../../public/images/products/product14",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product14.jpg",
     "stock": 9
   },
@@ -145,7 +159,8 @@ export const products = [
     "description": "Estilo urbano resistente; comodidad diaria y tracción confiable.",
     "price": 139900,
     "image": "../../public/images/products/product15",
-    "featured": false,
+    "highlighted": false,
+    "slider": true,
     "thumbnail": "product15.jpg",
     "stock": 4
   },
@@ -155,7 +170,8 @@ export const products = [
     "description": "Sensación natural y flexible; malla fresca y buena tracción.",
     "price": 129999,
     "image": "../../public/images/products/product16",
-    "featured": false,
+    "highlighted": false,
+    "slider": false,
     "thumbnail": "product16.jpg",
     "stock": 11
   }
