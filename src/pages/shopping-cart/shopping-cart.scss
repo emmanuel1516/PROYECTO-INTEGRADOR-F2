@@ -41,5 +41,10 @@
             font-weight: var.$font-weight-bold;
             font-size: var.$font-size-sm;
         }
+
+        &__body-actions {
+            display: flex;
+            gap: 1rem;
+        }
     }
 }
