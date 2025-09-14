@@ -98,4 +98,9 @@
             background-color: var.$color-primary-600;
         }
     }
+
+    &__no-stock {
+        color: var.$color-danger-500;
+        font-weight: var.$font-weight-bold;
+    }
 }

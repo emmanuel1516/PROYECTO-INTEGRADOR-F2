@@ -3,10 +3,8 @@
 .button {
     color: var.$color-neutro-100;
     font-size: var.$font-size-sm;
-
-    background-color: var.$color-primary-500;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 1rem;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 
@@ -34,10 +32,10 @@
     }
 
     &--primary {
-        background-color: var.$color-primary-700;
+        background-color: var.$color-primary-500;
 
         &:hover {
-            background-color: var.$color-primary-800;
+            background-color: var.$color-primary-600;
         }
     }
 }

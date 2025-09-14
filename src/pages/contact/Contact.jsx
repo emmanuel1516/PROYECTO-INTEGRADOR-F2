@@ -1,8 +1,8 @@
 import { Text } from "@/components/texts";
 import ContactForm from "./contact-form/ContactForm";
 import "./contact.scss";
+import InstitutionMap from "./institution-map/InstitutionMap";
 import Institution from "./institution/Institution";
-
 const Contact = () => {
     return (
         <div className="contact">
@@ -10,6 +10,7 @@ const Contact = () => {
             <div className="contact__content">
                 <div className="contact__institution">
                     <Institution />
+                    <InstitutionMap/>
                 </div>
 
                 <div className="contact__form">

@@ -8,6 +8,13 @@ const ShoppingCart = () => {
     const { shoppingCartContext } = useContext(AppContext);
     const { shoppingCart } = shoppingCartContext;
 
+    const formatPrice = (value) => {
+        return new Intl.NumberFormat("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(Number(value));
+    };
+
     return (
         <div className="shopping-cart">
             <Text variant="h2">Carrito</Text>
@@ -26,15 +33,15 @@ const ShoppingCart = () => {
                         <TableRow key={article.id} className="table__body">
                             <TableCell align="left">{article.name}</TableCell>
                             <TableCell align="right">{article.quantity}</TableCell>
-                            <TableCell align="right">${article.price?.toFixed(2)}</TableCell>
-                            <TableCell align="right">${article.amount?.toFixed(2)}</TableCell>
+                            <TableCell align="right">${formatPrice(article.price?.toFixed(2))}</TableCell>
+                            <TableCell align="right">${formatPrice(article.amount?.toFixed(2))}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
 
             <div className="table__footer">
-                <Text className="table__total" variant="p">Total: ${shoppingCart.totalAmount?.toFixed(2)}</Text>
+                <Text className="table__total" variant="p">Total: ${formatPrice(shoppingCart.totalAmount?.toFixed(2))}</Text>
             </div>
         </div>
     );

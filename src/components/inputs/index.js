@@ -5,6 +5,7 @@ export { default as InputInquiry } from "./InputInquiry";
 export { default as InputName } from "./InputName";
 export { default as InputPhone } from "./InputPhone";
 export { default as InputPrice } from "./InputPrice";
+export { default as InputSearch } from "./InputSearch";
 export { default as InputStock } from "./InputStock";
 export { default as InputSurname } from "./InputSurname";
 export { default as InputThumbnail } from "./InputThumbnail";

@@ -19,13 +19,15 @@ const Input = (props) => {
         ...restProps
     } = props;
 
+    const inputId = id || name;
+
     const classes = `input  ${error ? "input--invalid" : "input--valid"} ${className ?? ""}`;
 
     return (
         <FormControl fullWidth className={classes}>
-            <InputLabel htmlFor="outlined-adornment-amount" size={size}>{label}</InputLabel>
+            <InputLabel htmlFor={inputId} size={size}>{label}</InputLabel>
             <OutlinedInput
-                id={id || name}
+                id={inputId}
                 label={label}
                 name={name}
                 type={type}
@@ -45,7 +47,7 @@ const Input = (props) => {
 
 Input.propTypes = {
     className: PropTypes.string,
-    type: PropTypes.oneOf([ "text", "email", "number", "tel" ]).isRequired,
+    type: PropTypes.oneOf([ "text", "email", "number", "tel", "search" ]).isRequired,
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,

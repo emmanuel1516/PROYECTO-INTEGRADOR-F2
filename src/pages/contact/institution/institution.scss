@@ -2,6 +2,11 @@
 
 .institution {
     width: 400px;
+    background-color: var.$color-neutro-300;
+    padding: var.$spacing-xl;
+    border-radius: 1rem;
+    margin: var.$spacing-xl;
+    border-radius: var.$spacing-md 0 var.$spacing-md 0;
 
     &__list {
         display: flex;

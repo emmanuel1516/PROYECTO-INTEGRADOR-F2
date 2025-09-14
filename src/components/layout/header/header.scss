@@ -13,7 +13,7 @@
     &__shopping-cart {
         grid-column: 3;
         display: flex;
-        padding: var.$spacing-md !important;
+        margin: var.$spacing-md !important;
         justify-self: end;
         align-self: start;
 

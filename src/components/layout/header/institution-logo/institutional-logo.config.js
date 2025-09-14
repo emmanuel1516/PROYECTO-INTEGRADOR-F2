@@ -1,7 +1,7 @@
-export const item = [
+export const item =
     {
         path: "/",
         iconName: "Home",
         label: "Inicio",
-    },
-];
+    }
+;

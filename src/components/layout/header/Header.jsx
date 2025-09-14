@@ -21,9 +21,10 @@ const Header = () => {
         <header className="header">
             <InstitutionLogo className="header__institution"/>
             <IconButtonBadge
+                onClick={handleShoppingCart}
                 className="header__shopping-cart"
                 badgeContent={shoppingCart.totalQuantity ?? 0}>
-                <ShoppingCartIcon onClick={handleShoppingCart}/>
+                <ShoppingCartIcon/>
             </IconButtonBadge>
 
         </header>

@@ -36,9 +36,16 @@ const ProductItem = (props) => {
         subtractArticle(product.id, 1);
     };
 
+    const formatPrice = (value) => {
+        return new Intl.NumberFormat("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        }).format(Number(value));
+    };
+
     const renderActions = () => {
         if (product.stock === 0) {
-            return (<Text variant="p">SIN STOCK</Text>);
+            return (<Text className="product-item__no-stock" variant="p">SIN STOCK</Text>);
         }
 
         return (
@@ -73,7 +80,7 @@ const ProductItem = (props) => {
                     <Text className="product-item__description" variant="p">{product.description}</Text>
                 </Skeleton>
                 <Skeleton className="product-item__price--skeleton" isLoading={isLoading}>
-                    <Text className="product-item__price" variant="span">${product.price.toFixed(2)}</Text>
+                    <Text className="product-item__price" variant="span">${formatPrice(product.price.toFixed(2))}</Text>
                 </Skeleton>
             </div>
 
