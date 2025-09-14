@@ -15,9 +15,9 @@ const generateId = (products) => {
 };
 
 const initialize = () => {
-  const initialData = Array.isArray(products) ? products : [];
-  localStorage.setItem(KEY_PRODUCTS, JSON.stringify(initialData));
-  return initialData;
+    const initialData = Array.isArray(products) ? products : [];
+    localStorage.setItem(KEY_PRODUCTS, JSON.stringify(initialData));
+    return initialData;
 };
 
 const getProductsFromLocalStorage = () => {

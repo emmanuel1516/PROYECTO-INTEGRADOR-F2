@@ -3,5 +3,4 @@ export const initialValues = {
     surname: "",
     email: "",
     phone: "",
-    inquiry: "",
 };
