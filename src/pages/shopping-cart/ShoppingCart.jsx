@@ -1,75 +1,113 @@
-import { ButtonPrimary } from "@/components/buttons";
+import { AlertDanger } from "@/components/alerts";
+import AlertSuccessForm from "@/components/alerts/AlertSuccessForm";
+
 import { Text } from "@/components/texts";
 import AppContext from "@/contexts/AppContext";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import { useContext } from "react";
+import { useProduct } from "@/hooks/useProduct";
+
+import { useContext, useState } from "react";
+import ConsumerForm from "./consumer-form/ConsumerForm";
+import ProductsTable from "./products-table/ProductsTable";
 import "./shopping-cart.scss";
 
 const ShoppingCart = () => {
     const { shoppingCartContext } = useContext(AppContext);
-    const { shoppingCart, addArticle, subtractArticle } = shoppingCartContext;
+    const { shoppingCart, addArticle, subtractArticle, clearCart } = shoppingCartContext;
+    const [ alertError, setAlertError ] = useState({ open: false, message: "" });
+    const [ alertSuccess, setAlertSuccess ] = useState({ open: false, message: "" });
 
-    const renderActions = (article) => {
-        return (
-            <>
-                <ButtonPrimary
-                    className="product-item__remove"
-                    size="sm"
-                    onClick={() => subtractArticle(article.id, 1)}>
-                    <RemoveCircleOutlineIcon />
-                </ButtonPrimary>
-
-                <ButtonPrimary
-                    className="product-item__add"
-                    size="sm"
-                    onClick={() => addArticle(article.id, 1)}>
-                    <AddShoppingCartIcon />
-                </ButtonPrimary>
-            </>
-        );
+    const handleClear = () => {
+        clearCart();
     };
 
-    const formatPrice = (value) => {
-        return new Intl.NumberFormat("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(Number(value));
+    const { fetchProductById, updateProduct } = useProduct();
+
+    const handleBuy = async (consumer) => {
+        const items = shoppingCart.articles ?? [];
+
+        if (items.length === 0) {
+            setAlertError({
+                open: true,
+                message: "No hay productos en el carrito.",
+            });
+            return false;
+        }
+        const products = await Promise.all(items.map((i) => fetchProductById(i.id)));
+
+        const insuficientes = [];
+        for (let i = 0; i < items.length; i++) {
+            const cartItem = items[i];
+            const prod = products[i];
+            const stockActual = prod?.stock ?? 0;
+
+            if (!prod || cartItem.quantity > stockActual) {
+                insuficientes.push({ id: cartItem.id, name: cartItem.name });
+            }
+        }
+
+        if (insuficientes.length > 0) {
+            setAlertError({
+                open: true,
+                message: "Hay productos con stock insuficiente",
+            });
+            return false;
+        }
+
+        await Promise.all(
+            items.map((cartItem, idx) => {
+                const prod = products[idx];
+                const nuevoStock = (prod.stock ?? 0) - cartItem.quantity;
+                return updateProduct(prod.id, { stock: nuevoStock });
+            }),
+        );
+
+        const order = {
+            id: Date.now(),
+            consumer,
+            items,
+            totalQuantity: shoppingCart.totalQuantity,
+            totalAmount: shoppingCart.totalAmount,
+            createdAt: new Date().toISOString(),
+        };
+        const prev = JSON.parse(localStorage.getItem(ORDERS_KEY) || "[]");
+        localStorage.setItem(ORDERS_KEY, JSON.stringify([ order, ...prev ]));
+
+        setAlertSuccess({
+            open: true,
+            message: "¡Compra realizada con éxito!",
+        });
+        clearCart();
+
+        return true;
+
     };
 
     return (
         <div className="shopping-cart">
             <Text variant="h2">Carrito</Text>
+            <ProductsTable
+                articles={shoppingCart.articles}
+                addArticle={addArticle}
+                subtractArticle={subtractArticle}
+                totalAmount={shoppingCart.totalAmount}/>
 
-            <Table>
-                <TableHead>
-                    <TableRow className="table__head">
-                        <TableCell align="left">Producto</TableCell>
-                        <TableCell align="right">Cant.</TableCell>
-                        <TableCell align="right">Precio</TableCell>
-                        <TableCell align="right">Importe</TableCell>
-                        <TableCell align="right"></TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {shoppingCart.articles?.map((article) => (
-                        <TableRow key={article.id} className="table__body">
-                            <TableCell align="left">{article.name}</TableCell>
-                            <TableCell align="right">{article.quantity}</TableCell>
-                            <TableCell align="right">${formatPrice(article.price?.toFixed(2))}</TableCell>
-                            <TableCell align="right">${formatPrice(article.amount?.toFixed(2))}</TableCell>
-                            <TableCell className="table__body-actions" align="right">{renderActions(article)}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            <ConsumerForm
+                onCancel={handleClear}
+                onBuy={handleBuy}
+                isCartEmpty={(shoppingCart.articles?.length ?? 0) === 0}/>
+            {alertError.open && (
+                <AlertDanger
+                    open={alertError.open}
+                    message={alertError.message}
+                    onClose={() => setAlertError({ open: false, message: "" })}/>
+            )}
+            {alertSuccess.open && (
+                <AlertSuccessForm
+                    open={alertSuccess.open}
+                    message={alertSuccess.message}
+                    onClose={() => setAlertSuccess({ open: false, message: "" })}/>
+            )}
 
-            <div className="table__footer">
-                <Text className="table__total" variant="p">
-          Total: ${formatPrice(shoppingCart.totalAmount?.toFixed(2))}
-                </Text>
-            </div>
         </div>
     );
 };

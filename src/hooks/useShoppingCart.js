@@ -81,6 +81,12 @@ export const useShoppingCart = () => {
         }
     };
 
+    const clearCart = async () => {
+        const empty = createShoppingCartSchema([]); // mismo schema pero vacío
+        setShoppingCart(empty);
+        localStorage.setItem(KEY_SHOPPING_CART, JSON.stringify(empty));
+    };
+
     useEffect(() => {
         getShoppingCart();
     }, []);
@@ -89,5 +95,6 @@ export const useShoppingCart = () => {
         shoppingCart,
         addArticle,
         subtractArticle,
+        clearCart,
     };
 };
