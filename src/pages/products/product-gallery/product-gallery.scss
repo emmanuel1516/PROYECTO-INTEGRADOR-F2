@@ -22,6 +22,7 @@
 
         @media (max-width: 576px) {
             grid-template-columns: 1fr;
+            max-width: 350px;
         }
 
         &__card {

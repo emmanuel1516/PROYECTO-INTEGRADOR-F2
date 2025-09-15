@@ -21,4 +21,9 @@
         gap: var.$spacing-md;
         border-radius: 1rem;
     }
+
+
+    @media (max-width: 480px) {
+        width: 300px;
+    }
 }
